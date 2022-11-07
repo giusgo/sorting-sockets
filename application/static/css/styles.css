@@ -1,0 +1,201 @@
+:root {
+    --charcoal: #383F51;
+    --lavender: #DDDBF1;
+    --blue: #3C4F76;
+    --pale: #D1BEB0;
+    --silver: #AB9F9D;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- BODY ---------- */
+
+body {
+    font-family: 'Rubik', sans-serif;
+}
+
+/* ---------- HEADER ---------- */
+
+header {
+    width: 100%;
+    height: 60px;
+    border-bottom: 10px solid rgb(245 245 245);
+    user-select: none;
+}
+
+header .header-container {
+    height: 100%;
+    width: 60%;
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .header-container h1 {
+    font-size: 28px;
+    color: var(--blue);
+}
+
+header .header-container span {
+    font-size: 16px;
+    color: var(--silver);
+}
+
+header .header-container i {
+    font-size: 28px;
+    margin-left: 5px;
+    color: var(--charcoal);
+}
+
+/* ---------- MAIN ---------- */
+
+main {
+    width: 100%;
+}
+
+main .main-container {
+    width: 60%;
+    margin: auto;
+}
+
+/* SECTIONS */
+main .main-container section {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* SECTION: INFO */
+main .main-container .info h2 {
+    font-size: 22px;
+    color: var(--silver);
+}
+
+main .main-container .info hr {
+    height: 1px;
+    border: 0;
+    background: var(--silver);
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+main .main-container .info p {
+    line-height: 20px;
+    font-size: 16px;
+    color: rgb(20 20 20);
+}
+
+main .main-container .info p a {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+main .main-container .info p #flask {
+    color: #4584b6;
+}
+
+main .main-container .info p #socketio {
+    color: #c4ad00;
+}
+
+/* SECTION: TOOLS */
+main .main-container .tools h2 {
+    font-size: 22px;
+    color: var(--silver);
+}
+
+main .main-container .tools hr {
+    height: 1px;
+    border: 0;
+    background: var(--silver);
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+main .main-container .tools p {
+    line-height: 20px;
+    font-size: 16px;
+    color: rgb(20 20 20);
+}
+
+main .main-container .tools .options {
+    margin-top: 10px;
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+main .main-container .tools .options .tool {
+    height: 100%;
+    width: 100px;
+
+    background: rgb(245 245 245);
+    border-radius: 2px;
+
+    margin: 0 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+main .main-container .tools .options .tool i {
+    font-size: 22px;
+    color: var(--blue);
+}
+
+main .main-container .tools .options .tool p {
+    font-size: 12px;
+    margin-top: 5px;
+    color: rgb(20 20 20);
+}
+
+main .main-container .tools .options .tool:hover {
+    background-color: rgb(240 240 240);
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer {
+    position: absolute;
+    bottom: 0;
+
+    background: var(--blue);
+    width: 100%;
+    height: 45px;
+}
+
+footer .who-we-are {
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    line-height: 45px;
+}
+
+footer #github {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+footer #github a {
+    text-decoration: none;
+}
+
+footer #github i {
+    font-size: 30px;
+    color: white;
+}

@@ -2,6 +2,7 @@ import sys
 sys.path.insert(1,"run.py")
 
 from run import app
+from run import socketio
 from flask import render_template
 
 @app.route("/")
@@ -9,12 +10,7 @@ def root():
     
     return render_template("index.html")
 
-@app.route("/api/v1/", methods = ["GET"])
-def get_request():
+@socketio.on("message")
+def handle_client_message(request: str): 
     
-    return ""
-
-@app.route("/api/v1", methods = ["POST"])
-def get_post():
-    
-    return "OK"
+    print(request)

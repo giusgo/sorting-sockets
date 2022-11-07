@@ -1,0 +1,46 @@
+necesito los datos que sigan esta forma: 
+
+{"vector": [aqui ingresas el vector que hizo el usuario(ejem: [1, 2, 3, 4])], "request": "aqui va el tipo de request(merge, heap, quick(especifica cual))"}
+
+ejemplo de lo anterior:
+
+{"vector": [1, 2, 3, 4], "request": "quicksort_left"} 
+
+NOTA: quicksort con el bono tiene 3 tipos de pivote: aleatorio, izquierda(left), derecha(right). Si el usuario quiere que el pivote sea el último elemento
+entonces me mandas quicksort_left, si quiere usar el primer elemento me mandas quicksort_right y si es aleatorio solo manda quicksort. Para los otros ordenamientos me los mandas como heapsort y mergesort. 
+
+Te devolveré el vector organizado de la siguiente manera
+
+ejemplo pagina
+
+representaciones:
+
+    - {} -> text_field 
+    - [] -> boton 
+    - "" -> titulos 
+
+------------------------------------------------------------------------------------------------------------
+                        "Titulo"            ---------
+                                            |       |
+{campo de texto}                            |       | #aqui se explica cómo usar la página 
+                                            |       |
+                                            ---------
+"generar vectores aleatorios" 
+
+--------------------------------------------------------------------------------
+- {limite_inferior}   |   {limite_superior}    |    {tamaño del vector}        |
+--------------------------------------------------------------------------------
+
+aqui pon cualquier pendejada que se te ocurra
+
+pon el botón de mandar los datos en un lugar cómodo, ahora no se me ocurre uno
+
+VALIDA LAS ENTRADAS DEL usuario
+si se escoge usar una opción aleatoria NO puede modificar el vector generado aleatoriamente
+si se escoge que el usuario escriba el vector LA FORMA VÁLIDA DE HACERLO ES DE LA SIGUIENTE: 1,2,3,4,5 (solo se separa por comas)
+
+Por último, el campo de texto de entrada también se utilizará para dar el resultado. Mientras se procesa el vector puedes hacer una animación de 
+carga como quieras, pero que abajo de esa animación aparezca el status actual de la operación y una vez se termine se muestran los resultados en
+el campo de texto. Eres libre de cambiar lo que quieras ya sea orden, estilo, etc., pero no la formato de enviarme los datos.
+
+------------------------------------------------------------------------------------------------------------

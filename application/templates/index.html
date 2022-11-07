@@ -4,9 +4,111 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <script src="https://kit.fontawesome.com/51a9d021a9.js" crossorigin="anonymous"></script>
     <title>Sorting Sockets</title>
 </head>
 <body>
-   <p></p>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <h1>Sorting <span>via</span>Sockets</h1><i class="fa-solid fa-ethernet"></i>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <div class="main-container">
+
+            <section class="info">
+                <h2>About this page</h2>
+                <hr>
+                <p>
+                    This is a tool to interact with a server through vectors and sorting methods.
+                    Check the options below and click on any of them to start using it.
+                    This tool was possible thanks to
+                        <a id="flask" target="_blank" href="https://flask.palletsprojects.com/en/2.2.x/"><i class="fa-brands fa-python"></i> Flask</a>
+                        and
+                        <a id="socketio" target="_blank" href="https://socket.io/"><i class="fa-brands fa-square-js"></i> Socket.IO</a>.
+                </p>
+            </section>
+
+            <section class="tools">
+                <h2>Tools</h2>
+                <hr>
+                <p>Select one option:</p>
+                <div class="options">
+
+                    <div class="tool" id="mergesort-opt">
+                        <i class="fa-solid fa-code-merge"></i>
+                        <p>Merge Sort</p>
+                    </div>
+                    <div class="tool" id="heapsort-opt">
+                        <i class="fa-solid fa-diagram-project"></i>
+                        <p>Heap Sort</p>
+                    </div>
+                    <div class="tool" id="quicksort-opt">
+                        <i class="fa-solid fa-bolt"></i>
+                        <p>Quick Sort</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="interact">
+                <!-- Sort -->
+                <h2 id="title-sort">Merge Sort</h2> 
+                <div class="vector">
+                    <h3>Vector to use</h3>
+                    <p>You can introduce the vector yourself, or you generate a random one as well.</p>
+
+                    <label for="vector-mode">Select a mode</label>
+
+                    <select id="vector-mode">
+                        <option value="select">Select an option</option>
+                        <option value="manual">Manual</option>
+                        <option value="auto">Random</option>
+                    </select>
+
+                    <div class="vector-manual">
+                        <input type="text" name="" id="vector-manual">
+                    </div>
+
+                    <div class="vector-auto">
+                        <input type="text" name="" id="vector-auto">
+                        <input type="number" name="" id="vector-inf-lim">
+                        <input type="number" name="" id="vector-sup-lim">
+                        <input type="number" name="" id="vector-size">
+
+                        <button>Generate</button>
+                    </div>
+                </div>
+
+                <div class="sort">
+                    <h3>Sort</h3>
+                    <!-- LOADING BAR -->
+                    <div class="loading-bar">
+
+                    </div>
+
+                    <textarea name="" id="results"></textarea>
+
+                    <button>Sort</button>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="who-we-are">Made by two students in a hurry.</p>
+        <div id="github"><a href="https://github.com/manzeloth/sorting-sockets" target="_blank"><i class="fa-brands fa-github"></i></a></div>
+        
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>
 </body>
 </html>
