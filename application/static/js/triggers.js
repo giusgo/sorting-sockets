@@ -4,15 +4,23 @@
 
 // Interact section
 const interact_section = document.querySelector('.interact'),
-// Title for the type of sort
+      // Title for the type of sort
       interact_title = document.getElementById('title-sort');
+      // Option buttons
+      opt_btns = document.querySelectorAll('.tool');
 
 // Show interact section
-function showInteract(type) {
+function showInteract(type, btn) {
     sort_type = type + 'sort';  // Change sort type
 
     interact_section.style.display = 'block';
     interact_title.innerHTML = type.charAt(0).toUpperCase() + type.slice(1) + ' Sort'
+
+    for (let btn of opt_btns) {
+        btn.classList.remove('active');
+    }
+
+    btn.classList.add('active');
 }
 
 /*

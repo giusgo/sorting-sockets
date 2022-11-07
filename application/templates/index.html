@@ -42,15 +42,15 @@
                 <p>Select one option:</p>
                 <div class="options">
 
-                    <div class="tool" id="mergesort-opt" onclick="showInteract('merge')">
+                    <div class="tool" id="mergesort-opt" onclick="showInteract('merge', this)">
                         <i class="fa-solid fa-code-merge"></i>
                         <p>Merge Sort</p>
                     </div>
-                    <div class="tool" id="heapsort-opt" onclick="showInteract('heap')">
+                    <div class="tool" id="heapsort-opt" onclick="showInteract('heap', this)">
                         <i class="fa-solid fa-diagram-project"></i>
                         <p>Heap Sort</p>
                     </div>
-                    <div class="tool" id="quicksort-opt" onclick="showInteract('quick')">
+                    <div class="tool" id="quicksort-opt" onclick="showInteract('quick', this)">
                         <i class="fa-solid fa-bolt"></i>
                         <p>Quick Sort</p>
                     </div>
@@ -60,8 +60,9 @@
 
             <!-- SECTION: INTERACT -->
             <section class="interact">
-                <!-- Sort -->
                 <h2 id="title-sort"></h2> 
+
+                <!-- Vector -->
                 <div class="vector">
                     <h3>Vector to use</h3>
                     <p>You can introduce the vector yourself, or you generate a random one as well. Note that despite the size of the vector field, the vector can be the size you want (in case of generated ones, only < 7 digits).</p>
@@ -84,7 +85,7 @@
                     <div class="vector-auto">
                         <div class="vector-display">
                             <label for="vector-manual">Generated vector:</label>
-                            <input type="text" id="vector-auto" disabled>
+                            <input type="text" id="vector-auto" placeholder="Fill the fields and then click on 'Generate'" disabled>
                         </div>
                         
                         <div class="vector-params">
@@ -102,18 +103,21 @@
                     </div>
                 </div>
 
+                <!-- Sort -->
                 <div class="sort">
                     <h3>Sort</h3>
                     <p>Once filled the fields above, click on the button 'Sort' below.</p>
 
-                    <textarea name="" id="results"></textarea>
+                    <div id="results"></div>
                     
                     <!-- LOADING BAR -->
                     <div class="loading-bar">
 
                     </div>
 
-                    <button>Sort</button>
+                    <div class="button-wrapper">
+                        <button>Sort</button>
+                    </div>
                 </div>
 
             </section>

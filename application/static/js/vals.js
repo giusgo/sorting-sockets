@@ -7,12 +7,14 @@ document.getElementById('vector-mode').value = 'select'
 
 // All the input field available for the user will have no content in the field
 const vector_manual_field = document.getElementById('vector-manual'),
+      vector_auto_field = document.getElementById('vector-auto'),
       vector_min_num_field = document.getElementById('vector-min-num'),
       vector_max_num_field = document.getElementById('vector-max-num'),
       vector_size_field = document.getElementById('vector-size'),
 
       // Fields
       fields = [vector_manual_field,
+                vector_auto_field,
                 vector_min_num_field,
                 vector_max_num_field,
                 vector_size_field];
