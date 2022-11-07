@@ -247,6 +247,7 @@ main .main-container .interact .vector .vector-manual input {
     font-size: 18px;
     color: gray;
     outline: none;
+    padding-left: 5px;
 }
 
 main .main-container .interact .vector .vector-manual input:focus {
@@ -298,6 +299,8 @@ main .main-container .interact .vector .vector-auto input {
     font-size: 16px;
     color: gray;
     outline: none;
+
+    padding-left: 5px;
 }
 
 main .main-container .interact .vector .vector-auto input:focus {

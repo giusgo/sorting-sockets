@@ -17,8 +17,14 @@ const vector_manual_field = document.getElementById('vector-manual'),
                 vector_max_num_field,
                 vector_size_field];
 
+// Reset
 for (let field of fields) {
     field.value = ''
+}
+
+// Prevent paste on input fields
+for (let field of fields) {
+    field.onpaste = e => e.preventDefault();
 }
 
 // Just numbers on number fields and appropiate length

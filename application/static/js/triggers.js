@@ -29,15 +29,21 @@ function showVectorParams(value) {
     if (value == 'select') {
         vector_manual.classList.remove('active');
         vector_auto.classList.remove('active');
+
+        vector_field = null;
     }
 
     if (value == 'manual') {
         vector_manual.classList.add('active');
         vector_auto.classList.remove('active');
+
+        vector_field = document.getElementById('vector-manual');
     }
 
     if (value == 'auto') {
         vector_auto.classList.add('active');
         vector_manual.classList.remove('active');
+
+        vector_field = document.getElementById('vector-auto');
     }
 }
