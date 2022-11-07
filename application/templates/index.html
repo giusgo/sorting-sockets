@@ -21,6 +21,7 @@
     <main>
         <div class="main-container">
 
+            <!-- SECTION: INFO -->
             <section class="info">
                 <h2>About this page</h2>
                 <hr>
@@ -34,21 +35,22 @@
                 </p>
             </section>
 
+            <!-- SECTION: TOOLS -->
             <section class="tools">
                 <h2>Tools</h2>
                 <hr>
                 <p>Select one option:</p>
                 <div class="options">
 
-                    <div class="tool" id="mergesort-opt">
+                    <div class="tool" id="mergesort-opt" onclick="showInteract('merge')">
                         <i class="fa-solid fa-code-merge"></i>
                         <p>Merge Sort</p>
                     </div>
-                    <div class="tool" id="heapsort-opt">
+                    <div class="tool" id="heapsort-opt" onclick="showInteract('heap')">
                         <i class="fa-solid fa-diagram-project"></i>
                         <p>Heap Sort</p>
                     </div>
-                    <div class="tool" id="quicksort-opt">
+                    <div class="tool" id="quicksort-opt" onclick="showInteract('quick')">
                         <i class="fa-solid fa-bolt"></i>
                         <p>Quick Sort</p>
                     </div>
@@ -56,30 +58,45 @@
                 </div>
             </section>
 
+            <!-- SECTION: INTERACT -->
             <section class="interact">
                 <!-- Sort -->
-                <h2 id="title-sort">Merge Sort</h2> 
+                <h2 id="title-sort"></h2> 
                 <div class="vector">
                     <h3>Vector to use</h3>
                     <p>You can introduce the vector yourself, or you generate a random one as well.</p>
 
-                    <label for="vector-mode">Select a mode</label>
-
-                    <select id="vector-mode">
-                        <option value="select">Select an option</option>
-                        <option value="manual">Manual</option>
-                        <option value="auto">Random</option>
-                    </select>
+                    <div class="vector-select">
+                        <label for="vector-mode">Mode:</label>
+                        <select id="vector-mode" oninput="showVectorParams(value)">
+                            <option value="select">Select an option</option>
+                            <option value="manual">Manual</option>
+                            <option value="auto">Random</option>
+                        </select>
+                    </div>
 
                     <div class="vector-manual">
-                        <input type="text" name="" id="vector-manual">
+                        <p>Introduce the vector numbers separated by commas like this: 4,32,7,3,1</p>
+                        <label for="vector-manual">Vector:</label>
+                        <input type="text" name="" id="vector-manual" onkeypress="validateVector(event, this)">
                     </div>
 
                     <div class="vector-auto">
-                        <input type="text" name="" id="vector-auto">
-                        <input type="number" name="" id="vector-inf-lim">
-                        <input type="number" name="" id="vector-sup-lim">
-                        <input type="number" name="" id="vector-size">
+                        <div class="vector-display">
+                            <label for="vector-manual">Generated vector:</label>
+                            <input type="text" id="vector-auto" disabled>
+                        </div>
+                        
+                        <div class="vector-params">
+                            <label for="vector-min-num">Min. number:</label>
+                            <input type="text" id="vector-min-num" onkeypress="validateOnlyNumbers(event, this)">
+    
+                            <label for="vector-max-num">Max. number:</label>
+                            <input type="text" id="vector-max-num" onkeypress="validateOnlyNumbers(event, this)">
+    
+                            <label for="vector-size">Size:</label>
+                            <input type="text" id="vector-size" onkeypress="validateOnlyNumbers(event, this)">
+                        </div>
 
                         <button>Generate</button>
                     </div>
@@ -109,6 +126,12 @@
         
     </footer>
 
+    <!-- SOCKETS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.3/socket.io.js"></script>
+
+    <!-- TRIGGERS & VALS. -->
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/vals.js"></script>
+    <script src="../static/js/triggers.js"></script>
 </body>
 </html>

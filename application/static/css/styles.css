@@ -165,6 +165,158 @@ main .main-container .tools .options .tool:hover {
     background-color: rgb(240 240 240);
 }
 
+/* SECTION: INTERACT */
+main .main-container .interact {
+    display: none; /* Initial display on page load */
+}
+
+main .main-container .interact h2 {
+    font-size: 22px;
+    text-align: center;
+    color: var(--silver);
+}
+
+/* SUB-SECTIONS */
+main .main-container .interact > div {
+    width: 90%;
+    margin: 15px auto 0 auto;
+}
+
+/* SUB-SECTION: VECTOR */
+main .main-container .interact .vector h3 {
+    font-size: 20px;
+    color: var(--blue);
+    margin-bottom: 10px;
+}
+
+main .main-container .interact .vector p {
+    line-height: 20px;
+    font-size: 16px;
+    color: rgb(20 20 20);
+}
+
+main .main-container .interact .vector .vector-select {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+main .main-container .interact .vector .vector-select label {
+    padding-right: 10px;
+}
+
+main .main-container .interact .vector .vector-select select {
+    border: 2px solid var(--pale);
+    border-radius: 2px;
+    padding: 2px 10px;
+    background: transparent;
+}
+
+main .main-container .interact .vector .vector-select select:focus {
+    border: 2px solid var(--blue);
+}
+
+main .main-container .interact .vector .vector-manual {
+    margin-top: 10px;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* on-active */
+main .main-container .interact .vector .vector-manual.active {
+    display: flex;
+}
+
+main .main-container .interact .vector .vector-manual p {
+    line-height: 20px;
+    font-size: 12px;
+    color: rgb(20 20 20);
+}
+
+main .main-container .interact .vector .vector-manual label {
+    font-size: 14px;
+}
+
+main .main-container .interact .vector .vector-manual input {
+    width: 80%;
+    font-size: 18px;
+    color: gray;
+    outline: none;
+}
+
+main .main-container .interact .vector .vector-manual input:focus {
+    border: 2px solid var(--blue);
+    border-radius: 2px;
+}
+
+main .main-container .interact .vector .vector-auto {
+    margin-top: 10px;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* on-active */
+main .main-container .interact .vector .vector-auto.active {
+    display: flex;
+}
+
+main .main-container .interact .vector .vector-auto > div {
+    width: 100%;
+}
+
+main .main-container .interact .vector .vector-auto .vector-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .main-container .interact .vector .vector-auto .vector-display #vector-auto {
+    font-size: 18px;
+    width: 80%;
+}
+
+main .main-container .interact .vector .vector-auto .vector-params {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+main .main-container .interact .vector .vector-auto label {
+    font-size: 14px;
+}
+
+main .main-container .interact .vector .vector-auto input {
+    font-size: 16px;
+    color: gray;
+    outline: none;
+}
+
+main .main-container .interact .vector .vector-auto input:focus {
+    border: 2px solid var(--blue);
+    border-radius: 2px;
+}
+
+main .main-container .interact .vector .vector-auto button {
+    font-family: 'Rubik', sans-serif;
+    margin-top: 5px;
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
 
 /* ---------- FOOTER ---------- */
 
