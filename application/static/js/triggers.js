@@ -55,3 +55,20 @@ function showVectorParams(value) {
         vector_field = document.getElementById('vector-auto');
     }
 }
+
+/*
+    Quick sort mode trigger
+*/
+
+// Quick sort mode field
+const quicksort_field = document.querySelector('.quicksort-select');
+
+for (let btn of opt_btns) {
+    btn.addEventListener('click', function() {
+        if (btn.id == 'quicksort-opt') {
+            quicksort_field.classList.add('active');
+        } else {
+            quicksort_field.classList.remove('active');
+        }
+    })
+}

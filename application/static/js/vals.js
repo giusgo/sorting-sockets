@@ -24,6 +24,9 @@ for (let field of fields) {
     field.value = ''
 }
 
+// Reset result field
+document.getElementById('results').textContent = '';
+
 // Prevent paste on input fields
 for (let field of fields) {
     field.onpaste = e => e.preventDefault();

@@ -65,7 +65,7 @@
                 <!-- Vector -->
                 <div class="vector">
                     <h3>Vector to use</h3>
-                    <p>You can introduce the vector yourself, or you generate a random one as well. Note that despite the size of the vector field, the vector can be the size you want (in case of generated ones, only < 7 digits).</p>
+                    <p>You can introduce the vector yourself, or you generate a random one as well. Note that despite the size of the vector field, the vector can be the size you want.</p>
 
                     <div class="vector-select">
                         <label for="vector-mode">Mode:</label>
@@ -79,13 +79,13 @@
                     <div class="vector-manual">
                         <p>Introduce the vector numbers separated by commas like this: 4,32,7,3,1</p>
                         <label for="vector-manual">Vector:</label>
-                        <input type="text" name="" id="vector-manual" onkeypress="validateVector(event, this)">
+                        <textarea id="vector-manual" onkeypress="validateVector(event, this)"></textarea>
                     </div>
 
                     <div class="vector-auto">
                         <div class="vector-display">
-                            <label for="vector-manual">Generated vector:</label>
-                            <input type="text" id="vector-auto" placeholder="Fill the fields and then click on 'Generate'" disabled>
+                            <label for="vector-auto">Generated vector:</label>
+                            <textarea id="vector-auto" placeholder="Fill the fields and then click on 'Generate'" disabled></textarea>
                         </div>
                         
                         <div class="vector-params">
@@ -106,6 +106,16 @@
                 <!-- Sort -->
                 <div class="sort">
                     <h3>Sort</h3>
+
+                    <div class="quicksort-select">
+                        <label for="quicksort-mode">Quick Sort pivot:</label>
+                        <select id="quicksort-mode">
+                            <option value="quicksort">Random</option>
+                            <option value="quicksort_left">Left</option>
+                            <option value="quicksort_right">Right</option>
+                        </select>
+                    </div>
+
                     <p>Once filled the fields above, click on the button 'Sort' below.</p>
 
                     <div id="results"></div>
@@ -116,7 +126,7 @@
                     </div>
 
                     <div class="button-wrapper">
-                        <button>Sort</button>
+                        <button onclick="sort()">Sort</button>
                     </div>
                 </div>
 
