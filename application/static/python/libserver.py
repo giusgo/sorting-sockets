@@ -197,6 +197,12 @@ def partition(vector: list, start: int, stop: int, option: str = "random") -> in
         (vector[i + 1], vector[stop]) = (vector[stop], vector[i + 1])
 
         return i + 1
+    
+    if option == "median":
+        
+        pivot = sorted(vector[start], vector[(start + stop - 1) // 2], vector[stop - 1])[1]
+        pivot_loc = vector.index(pivot)
+        
 
 def generate_vector(size: int, min_number: int, max_number: int) -> list: 
     

@@ -33,19 +33,40 @@ for (let field of fields) {
 }
 
 // Just numbers on number fields and appropiate length
-function validateOnlyNumbers(evt, element) {
+function validateParams(evt, element) {
     var theEvent = evt || window.event;
     var key = theEvent.keyCode || theEvent.which;
     key = String.fromCharCode( key );
-    var regex = /^[0-9]+$/;
+    var regex = /^[0-9.-]+$/;
     if( !regex.test(key) ) {
         theEvent.returnValue = false;
         if(theEvent.preventDefault) theEvent.preventDefault();
     }
 
+    // Check size
     if (element.value.length > 5 && element == vector_size_field) {
         evt.preventDefault();
     } else if (element.value.length > 7) {
+        evt.preventDefault();
+    }
+
+    // Check correct field for min and max
+    if (element == vector_size_field && (evt.keyCode == 46 || evt.keyCode == 46)) {
+        evt.preventDefault();
+    }
+
+    // Check negatives
+    if (element.value != "" && evt.keyCode == 45) {
+        evt.preventDefault();
+    }
+
+    // Check dots
+    if (element.value.indexOf(".") != -1 && evt.keyCode == 46) {
+        evt.preventDefault();
+    }
+
+    // Check last dot
+    if (element.value.length == 7 && evt.keyCode == 46) {
         evt.preventDefault();
     }
 }

@@ -73,6 +73,14 @@ socket.on("random", function(msg) {
 })
 
 function generate() {
+    // If min > max
+    if (min_num.value > max_num.value) {
+        generate_box.value = '';
+        generate_box.placeholder = 'Min. value cannot be greater than max. value.';
+        return;
+    }
+
+    // Limit vector size
     if (size.value > 100000) {
         size.value = 100000;
     }

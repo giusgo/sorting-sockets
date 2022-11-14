@@ -88,18 +88,18 @@
                     <div class="vector-auto">
                         <div class="vector-display">
                             <label for="vector-auto">Generated vector:</label>
-                            <textarea id="vector-auto" placeholder="Fill the fields and then click on 'Generate'" disabled></textarea>
+                            <textarea id="vector-auto" name="vector-auto" placeholder="Fill the fields and then click on 'Generate'" disabled></textarea>
                         </div>
                         
                         <div class="vector-params">
                             <label for="vector-min-num">Min. number:</label>
-                            <input type="text" id="vector-min-num" onkeypress="validateOnlyNumbers(event, this)">
+                            <input type="text" id="vector-min-num" onkeypress="validateParams(event, this)">
     
                             <label for="vector-max-num">Max. number:</label>
-                            <input type="text" id="vector-max-num" onkeypress="validateOnlyNumbers(event, this)">
+                            <input type="text" id="vector-max-num" onkeypress="validateParams(event, this)">
     
                             <label for="vector-size">Size:</label>
-                            <input type="text" id="vector-size" onkeypress="validateOnlyNumbers(event, this)">
+                            <input type="text" id="vector-size" onkeypress="validateParams(event, this)">
                         </div>
 
                         <button onclick="generate()">Generate</button>
