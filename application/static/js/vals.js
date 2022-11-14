@@ -25,7 +25,7 @@ for (let field of fields) {
 }
 
 // Reset result field
-document.getElementById('results').textContent = '';
+document.getElementById('results').value = '';
 
 // Prevent paste on input fields
 for (let field of fields) {
@@ -55,10 +55,15 @@ function validateVector(evt, element) {
     var theEvent = evt || window.event;
     var key = theEvent.keyCode || theEvent.which;
     key = String.fromCharCode( key );
-    var regex = /^[0-9,]+$/;
+    var regex = /^[0-9,.]+$/;
     if( !regex.test(key) ) {
         theEvent.returnValue = false;
         if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+
+    // Dont accept dots at the beginning
+    if (element.value == "" && evt.keyCode == 46) {
+        evt.preventDefault();
     }
     
     // Dont accept commas at the beginning
@@ -70,4 +75,32 @@ function validateVector(evt, element) {
     if (element.value[element.value.length - 1] == "," && evt.keyCode == 44) {
         evt.preventDefault();
     }
+
+    // Dont accept more than 1 dot together
+    if (element.value[element.value.length - 1] == "." && evt.keyCode == 46) {
+        evt.preventDefault();
+    }
+
+    // Dont accept a dot right after a comma
+    if (element.value[element.value.length - 1] == "," && evt.keyCode == 46) {
+        evt.preventDefault();
+    }
+
+    // Accept only 1 dot in a number
+    if (evt.keyCode == 46) {
+        let i = 1, containsDot = false;
+        while (i < element.value.length) {
+            if (element.value[element.value.length - i] == ',') {
+                break;
+            } else if (element.value[element.value.length - i] == '.') {
+                containsDot = true;
+            }
+            i++;
+        }
+
+        if (containsDot) {
+            evt.preventDefault();
+        }
+    }
+    
 }

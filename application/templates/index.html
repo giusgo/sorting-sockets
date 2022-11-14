@@ -65,7 +65,10 @@
                 <!-- Vector -->
                 <div class="vector">
                     <h3>Vector to use</h3>
-                    <p>You can introduce the vector yourself, or you generate a random one as well. Note that despite the size of the vector field, the vector can be the size you want.</p>
+                    <p>
+                        You can introduce the vector yourself, or you generate a random one as well.
+                        Note that despite the size of the vector field, the size of the vector can only be <= 100000.
+                    </p>
 
                     <div class="vector-select">
                         <label for="vector-mode">Mode:</label>
@@ -99,7 +102,7 @@
                             <input type="text" id="vector-size" onkeypress="validateOnlyNumbers(event, this)">
                         </div>
 
-                        <button>Generate</button>
+                        <button onclick="generate()">Generate</button>
                     </div>
                 </div>
 
@@ -110,7 +113,7 @@
                     <div class="quicksort-select">
                         <label for="quicksort-mode">Quick Sort pivot:</label>
                         <select id="quicksort-mode">
-                            <option value="quicksort">Random</option>
+                            <option value="quicksort">Median-of-three</option>
                             <option value="quicksort_left">Left</option>
                             <option value="quicksort_right">Right</option>
                         </select>
@@ -118,7 +121,7 @@
 
                     <p>Once filled the fields above, click on the button 'Sort' below.</p>
 
-                    <div id="results"></div>
+                    <textarea disabled id="results"></textarea>
                     
                     <!-- LOADING BAR -->
                     <div class="loading-bar">
