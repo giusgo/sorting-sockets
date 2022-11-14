@@ -23,6 +23,19 @@ socket.on("vector", function(msg) {
 
 // Send data
 function sort() {
+    if (vector_field == null) {
+        return;
+    }
+
+    if (vector_field.value[vector_field.value.length - 1] == '.' || vector_field.value[vector_field.value.length - 1] == ',') {
+        vector_field.value = vector_field.value.substring(0, vector_field.value.length - 1)
+    }
+
+    if (vector_field.value[vector_field.value.length - 1] == '-') {
+        vector_field.value = vector_field.value.substring(0, vector_field.value.length - 2)
+    }
+
+
     if (vector_field.value == '') {
         return;
     }
@@ -30,6 +43,12 @@ function sort() {
     if (document.querySelector('.quicksort-select').classList.contains('active')) {
         sort_type = document.getElementById('quicksort-mode').value;
     }
+
+    // Limit vector size
+    let array_vector = vector_field.value.split(',');
+    if (array_vector.length > 100000) {
+        vector_field.value = array_vector.splice(0, 100000).join(',')
+    };
 
     // Send data
     socket.emit("vector",
@@ -54,6 +73,10 @@ socket.on("random", function(msg) {
 })
 
 function generate() {
+    if (size.value > 100000) {
+        size.value = 100000;
+    }
+
     // Send data
     socket.emit("random",
         {

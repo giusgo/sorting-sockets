@@ -55,7 +55,7 @@ function validateVector(evt, element) {
     var theEvent = evt || window.event;
     var key = theEvent.keyCode || theEvent.which;
     key = String.fromCharCode( key );
-    var regex = /^[0-9,.]+$/;
+    var regex = /^[0-9,.-]+$/;
     if( !regex.test(key) ) {
         theEvent.returnValue = false;
         if(theEvent.preventDefault) theEvent.preventDefault();
@@ -76,6 +76,11 @@ function validateVector(evt, element) {
         evt.preventDefault();
     }
 
+    // Dont accept a comma right after a dot
+    if (element.value[element.value.length - 1] == "." && evt.keyCode == 44) {
+        evt.preventDefault();
+    }
+
     // Dont accept more than 1 dot together
     if (element.value[element.value.length - 1] == "." && evt.keyCode == 46) {
         evt.preventDefault();
@@ -84,6 +89,18 @@ function validateVector(evt, element) {
     // Dont accept a dot right after a comma
     if (element.value[element.value.length - 1] == "," && evt.keyCode == 46) {
         evt.preventDefault();
+    }
+
+    // Dont accept more than 1 dash together
+    if (element.value[element.value.length - 1] == "-" && evt.keyCode == 45) {
+        evt.preventDefault();
+    }
+
+    // Accept only 1 dash at the beggining or after a comma
+    if (evt.keyCode == 45) {
+        if (element.value.length != 0 && element.value[element.value.length - 1] != ",") {
+            evt.preventDefault();
+        }
     }
 
     // Accept only 1 dot in a number
@@ -101,6 +118,22 @@ function validateVector(evt, element) {
         if (containsDot) {
             evt.preventDefault();
         }
+    }
+
+    // Fix size of the number
+    let i = 1;
+    while (i < element.value.length) {
+        if (element.value[element.value.length - i] == ',') {
+            i--;
+            break;
+        }
+        i++;
+    }
+    if (i > 7 && evt.keyCode != 44) {
+        evt.preventDefault();
+    }
+    if (i > 8 && evt.keyCode != 46 && evt.keyCode != 44) {
+        evt.preventDefault();
     }
     
 }
