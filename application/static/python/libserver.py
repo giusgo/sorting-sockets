@@ -148,7 +148,7 @@ def heapify(vector: list, size: int, i: int) -> None:
 
 
 def quick_sort(vector: list, start: int, stop: int, option: str) -> list:
-
+    
     if start < stop:
 
         pivot = partition(vector, start, stop, option)

@@ -74,14 +74,14 @@ socket.on("random", function(msg) {
 
 function generate() {
     // If min > max
-    if (min_num.value > max_num.value) {
+    if (parseFloat(min_num.value) > parseFloat(max_num.value)) {
         generate_box.value = '';
         generate_box.placeholder = 'Min. value cannot be greater than max. value.';
         return;
     }
 
     // Limit vector size
-    if (size.value > 100000) {
+    if (parseInt(size.value) > 100000) {
         size.value = 100000;
     }
 
@@ -94,3 +94,13 @@ function generate() {
         }
     )
 }
+
+/*
+    ASIDE FUNCTION (PROGRESS STATUS)
+*/
+
+// Permanent listener
+socket.on("progress", function(msg) {
+    console.log(msg);
+})
+

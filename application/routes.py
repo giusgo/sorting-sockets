@@ -23,11 +23,15 @@ def handle_client_message(request: dict):
         
         result = heap_sort(vector)
         
+        send_progress(len(vector))
+        
         emit("vector", result)
     
     if client_request == "mergesort": 
         
         result = merge_sort(vector)
+        
+        send_progress(len(vector))
         
         emit("vector", result)
     
@@ -35,19 +39,23 @@ def handle_client_message(request: dict):
         
         result = quick_sort(vector, 0, len(vector) - 1, "left")
         
+        send_progress(len(vector))
+        
         emit("vector", result)
     
     if client_request == "quicksort_right": 
         
         result = quick_sort(vector, 0, len(vector) - 1, "right")
         
+        send_progress(len(vector))
+        
         emit("vector", result)
     
     if client_request == "quicksort_median":
         
-        vector = list(map(lambda number: int(number), request.get("vector").split(",")))
-        
         result = quick_sort(vector, 0, len(vector) - 1, "median")
+        
+        send_progress(len(vector))
         
         emit("vector", result)
 
@@ -62,3 +70,22 @@ def create_vector(request: dict):
     result = generate_vector(size, min_number, max_number)
     
     emit("random", result)
+
+@socketio.on("progress")
+def send_progress(progress: int) -> None:
+    
+    for i in range(progress):
+        
+        if i / 1000 * 100 == 25:
+            
+            emit("progress", 25)
+        
+        if i / 1000 * 100 == 50:
+            
+            emit("progress", 50)
+        
+        if i / 1000 * 100 == 75:
+            
+            emit("progress", 75)
+        
+    emit("progress", 100)
