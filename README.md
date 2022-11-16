@@ -7,4 +7,4 @@ Para correr el proyecto, solo es necesario instalar los requerimientos y ejecuta
 
 No se utilizaron clases, por lo tanto, no hay diagrama.
 
-(DEMO) Por si se quiere probar sin descargar: http://sorting-sockets.herokuapp.com/
+(DEMO) Por si se quiere probar sin descargar (puede ser lento por Heroku): http://sorting-sockets.herokuapp.com/
