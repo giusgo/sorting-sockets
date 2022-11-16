@@ -1,6 +1,8 @@
 import sys 
 sys.path.insert(1,"run.py")
 
+from timeit import default_timer as timer
+
 from run import app
 from run import socketio
 from flask import render_template
@@ -21,43 +23,63 @@ def handle_client_message(request: dict):
     
     if client_request == "heapsort": 
         
+        start = timer()
+        
         result = heap_sort(vector)
+        
+        end = timer()
         
         send_progress(len(vector))
         
-        emit("vector", result)
+        emit("vector", {"result": result, "time_elapsed": end - start})
     
     if client_request == "mergesort": 
         
+        start = timer()
+        
         result = merge_sort(vector)
+        
+        end = timer()
         
         send_progress(len(vector))
         
-        emit("vector", result)
+        emit("vector", {"result": result, "time_elapsed": end - start})
     
     if client_request == "quicksort_left":
         
+        start = timer()
+        
         result = quick_sort(vector, 0, len(vector) - 1, "left")
+        
+        end = timer()
         
         send_progress(len(vector))
         
-        emit("vector", result)
+        emit("vector", {"result": result, "time_elapsed": end - start})
     
     if client_request == "quicksort_right": 
         
+        start = timer()
+        
         result = quick_sort(vector, 0, len(vector) - 1, "right")
+        
+        end = timer()
         
         send_progress(len(vector))
         
-        emit("vector", result)
+        emit("vector", {"result": result, "time_elapsed": end - start})
     
-    if client_request == "quicksort_median":
+    if client_request == "quicksort":
+        
+        start = timer()
         
         result = quick_sort(vector, 0, len(vector) - 1, "median")
         
+        end = timer()
+        
         send_progress(len(vector))
         
-        emit("vector", result)
+        emit("vector", {"result": result, "time_elapsed": end - start})
 
 
 @socketio.on("random")

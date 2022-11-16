@@ -370,9 +370,16 @@ main .main-container .interact .sort .quicksort-select select:focus {
 }
 
 main .main-container .interact .sort p {
+    margin-bottom: 10px;
     line-height: 20px;
     font-size: 16px;
     color: rgb(20 20 20);
+}
+
+main .main-container .interact .sort #time-elapsed {
+    color: darkgray;
+    padding: 5px 10px;
+    font-size: 14px;
 }
 
 main .main-container .interact .sort #results {
@@ -398,6 +405,30 @@ main .main-container .interact .sort button {
     font-weight: bold;
     border-radius: 2px;
     cursor: pointer;
+}
+
+/* ---------- PROGRESS BAR ---------- */
+
+.progress-bar {
+    margin: 10px 0;
+    width: 100%;
+    display: none;
+}
+
+.progress-bar.active {
+    display: block;
+}
+
+.progress-bar .progress-fill {
+    height: 20px;
+    background: var(--blue);
+    transition: width 0.5s;
+}
+
+.progress-bar .progress-text {
+    color: darkgray;
+    padding: 5px 10px;
+    font-size: 14px;
 }
 
 /* ---------- FOOTER ---------- */

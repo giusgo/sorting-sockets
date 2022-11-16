@@ -113,7 +113,6 @@
                     <div class="quicksort-select">
                         <label for="quicksort-mode">Quick Sort pivot:</label>
                         <select id="quicksort-mode">
-                            <option value="quicksort">Median-of-three</option>
                             <option value="quicksort_left">Left</option>
                             <option value="quicksort_right">Right</option>
                         </select>
@@ -121,10 +120,13 @@
 
                     <p>Once filled the fields above, click on the button 'Sort' below.</p>
 
-                    <!-- LOADING BAR -->
-                    <div class="loading-bar">
-                        
+                    <!-- PROGRESS BAR -->
+                    <div class="progress-bar" id="progress-bar">
+                        <div class="progress-fill"></div>
+                        <div class="progress-text" data-stages=""></div>
                     </div>
+
+                    <p id="time-elapsed"></p>
 
                     <textarea disabled id="results"></textarea>
 
@@ -152,5 +154,6 @@
     <script src="../static/js/main.js"></script>
     <script src="../static/js/vals.js"></script>
     <script src="../static/js/triggers.js"></script>
+    <script src="../static/js/progress.js"></script>
 </body>
 </html>

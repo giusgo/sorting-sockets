@@ -8,10 +8,23 @@ const interact_section = document.querySelector('.interact'),
       interact_title = document.getElementById('title-sort');
       // Option buttons
       opt_btns = document.querySelectorAll('.tool');
+      // Progress text
+      progress_text = document.querySelector('.progress-text');
 
 // Show interact section
 function showInteract(type, btn) {
     sort_type = type + 'sort';  // Change sort type
+
+    // Also, change the progress messages
+    if (type == 'merge') {
+        progress_stages = '0:Splitting vector...,50:Comparing...,75:Merging...,100:Done';
+    } else if (type == 'heap') {
+        progress_stages = '0:Heapifying...,50:Building max tree...,75:Sorting...,100:Done';
+    } else if (type == 'quick') {
+        progress_stages = '0:Finding pivot...,50:Partitioning...,75:Sorting...,100:Done';
+    }
+
+    progress_text.dataset.stages = progress_stages; // Change the progress messages
 
     interact_section.style.display = 'block';
     interact_title.innerHTML = type.charAt(0).toUpperCase() + type.slice(1) + ' Sort'

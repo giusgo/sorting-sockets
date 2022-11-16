@@ -5,6 +5,7 @@
 // Sort type for further calculation
 var sort_type;
 var vector_field;
+var progress_stages;
 
 /*
     SOCKET
@@ -15,14 +16,19 @@ const socket = io();
     MAIN FUNCTION (SORT)
 */
 const results_box = document.getElementById('results');
+const time_display = document.getElementById('time-elapsed');
 
 // Permanent listener
 socket.on("vector", function(msg) {
-    results_box.value = msg;
+    results_box.value = msg["result"];
+    time_display.textContent = `Time elapsed: ${msg["time_elapsed"]} seconds`
 })
 
 // Send data
 function sort() {
+    time_display.textContent = '';
+    results_box.value = '';
+
     if (vector_field == null) {
         return;
     }
@@ -57,6 +63,13 @@ function sort() {
             "request": sort_type
         }
     )
+
+    const progress_bar = document.getElementById('progress-bar')
+
+    // Show progress bar
+    progress_bar.classList.add('active');
+
+    updateProgressBar(progress_bar, 10);
 }
 
 /*
@@ -100,7 +113,16 @@ function generate() {
 */
 
 // Permanent listener
-socket.on("progress", function(msg) {
-    console.log(msg);
-})
+socket.on("progress", function(progress) {
+    const progress_bar = document.getElementById('progress-bar')
+    
+    updateProgressBar(progress_bar, progress);
 
+    if (progress == 100) {
+        setTimeout(function() {
+
+            // Show progress bar
+            progress_bar.classList.remove('active');
+        }, 2000)
+    }
+})

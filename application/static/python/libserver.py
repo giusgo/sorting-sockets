@@ -149,40 +149,74 @@ def heapify(vector: list, size: int, i: int) -> None:
 
 def quick_sort(vector: list, start: int, stop: int, option: str) -> list:
     
-    if start < stop:
+    """this function sorts a vector using quicksort
+    
+        Parameters
+        ----------
+        vector: vector(array) to be sorted
+        
+        start: first index of the vector
+        
+        stop: last index of the vector
+        
+        option: "right" for pivot to be last element, "left" for pivot as first element and "median" for enhanced pivot selection in the vector
+        
+        Returns 
+        ----------
+        vector sorted
+    """
+    
+    if start < stop: #if lower bound doesnt exceed higher bound
 
-        pivot = partition(vector, start, stop, option)
+        pivot = partition(vector, start, stop, option) #select pivot 
 
-        quick_sort(vector, start, pivot - 1, option)
+        quick_sort(vector, start, pivot - 1, option) #sort left part of the pivot
 
-        quick_sort(vector, pivot + 1, stop, option)
+        quick_sort(vector, pivot + 1, stop, option) #sort right part of the pivot
 
     return vector
 
 
-def partition(vector: list, start: int, stop: int, option: str = "random") -> int:
+def partition(vector: list, start: int, stop: int, option: str = "median") -> int:
+    
+    """this function creates partition for quicksort
+    
+        Parameters
+        ----------
+        vector: vector(array) to be sorted
+        
+        start: first index of the vector
+        
+        stop: last index of the vector
+        
+        option: "right" for pivot to be last element, "left" for pivot as first element and "median" for enhanced pivot selection in the vector
+        
+        Returns 
+        ----------
+        position of the pivot in the vector
+    """
 
     if option == "left":
 
-        pivot = vector[start]
+        pivot = vector[start] #choose pivot as the leftmost element
 
-        i = start + 1
+        i = start + 1 #left barrier bound
 
         for j in range(start + 1, stop + 1):
 
             if vector[j] <= pivot:
 
-                (vector[i], vector[j]) = (vector[j], vector[i])
+                vector[i], vector[j] = vector[j], vector[i] #switch elements lower than the pivot to the left and higher to the right
 
-                i += 1
+                i += 1 #move the barrier
 
-        (vector[i - 1], vector[start]) = (vector[start], vector[i - 1])
+        vector[i - 1], vector[start] = vector[start], vector[i - 1] #place pivot in its correct position
 
-        return i - 1
+        return i - 1 #return index of the pivot
 
     if option == "right":
 
-        pivot = vector[stop]
+        pivot = vector[stop] #choose pivot as the rightmost element
 
         i = start - 1
 
@@ -190,26 +224,57 @@ def partition(vector: list, start: int, stop: int, option: str = "random") -> in
 
             if vector[j] <= pivot:
 
-                i += 1
+                i += 1 #move the barrier
 
-                (vector[i], vector[j]) = (vector[j], vector[i])
+                vector[i], vector[j] = vector[j], vector[i] #switch elements lower than the pivot to the left and higher to the right
 
-        (vector[i + 1], vector[stop]) = (vector[stop], vector[i + 1])
+        vector[i + 1], vector[stop] = vector[stop], vector[i + 1] #place pivot in its correct position
 
-        return i + 1
+        return i + 1 #return index of the pivot
     
     if option == "median":
         
-        pivot = sorted(vector[start], vector[(start + stop - 1) // 2], vector[stop - 1])[1]
+        pivot = sorted([vector[start], vector[(start + stop - 1) // 2], vector[stop - 1]])[1]
         pivot_loc = vector.index(pivot)
+        
+        vector[start], vector[pivot_loc] = vector[pivot_loc], vector[start]
+        
+        i = start + 1 #left barrier bound
+        
+        for j in range(start + 1, stop, 1):
+            
+            if vector[j] < pivot: 
+                
+                vector[i], vector[j] = vector[j], vector[i] #switch elements lower than the pivot to the left and higher to the right
+            
+                i += 1 #move the barrier
+            
+        vector[start], vector[i - 1] = vector[i - 1], vector[start] #place pivot in its correct position
+
+        return i - 1 #return index of the pivot
         
 
 def generate_vector(size: int, min_number: int, max_number: int) -> list: 
+    
+    """this function creates a random vector of integers
+    
+        Parameters
+        ----------
+        size: length of the vector 
+        
+        min_number: lower bound of numbers to be generated 
+        
+        max_number: higher bound of numbers to be generated
+        
+        Returns 
+        ----------
+        vector with random numbers
+    """
     
     vector = []
     
     for i in range(size):
         
-        vector.append(random.randint(min_number, max_number))
+        vector.append(random.randint(min_number, max_number)) #generate random number and append it to the list
     
-    return vector 
+    return vector #return randomized vector
